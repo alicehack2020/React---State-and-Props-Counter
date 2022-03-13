@@ -4,17 +4,17 @@ function Counter(prob)
 {
     const [value,setValue] =useState(prob.startCount);
 
-  function increase(){
+  function increase(val){
       
-    setValue(value+1)
+    setValue(value+val)
   }
- let decrease=()=>{
+ let decrease=(val)=>{
      
-    setValue(value-1)
+    setValue(value-val)
   }
 
-  let double=()=>{
-    let x=value*2
+  let double=(val)=>{
+    let x=value*val
     setValue(x)
   }
 
@@ -28,9 +28,9 @@ function Counter(prob)
         <>
             <h1 id="display">{value}</h1>
             <div className="flex">
-                <button id="Increase" onClick={increase}>Increase</button>
-                <button id="decrease" onClick={decrease}>decrease</button>
-                <button id="double" onClick={double}>double</button>
+                <button id="Increase" onClick={()=>increase(1)}>Increase</button>
+                <button id="decrease" onClick={()=>decrease(1)}>decrease</button>
+                <button id="double" onClick={()=>double(2)}>double</button>
                 <button id="clear" onClick={clearValue}>clear</button>
             </div>
         </>
